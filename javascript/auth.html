@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <title></title>
+</head>
+
+<body>
+    <script type="text/javascript">
+
+        // Document ready start the script
+        document.addEventListener('DOMContentLoaded', function(event) {
+
+            const apiRequest = new oauth.Request({
+                client_id: CLIENT_ID, // required
+                redirect_uri: CALLBACK_URL, // For this example Example: http://localhost:4080/callback, check auth.js
+                scope: SCOPES // to add or remove scopes modify auth.js
+            });
+
+            // Preparing request URI
+            let uri = apiProvider.requestToken(apiRequest);
+            uri = uri.replace("%2B", "+");
+            // Stores the state in local storage to validate response later
+            apiProvider.remember(apiRequest);
+            // Redirect to authentication URL
+            window.location.href = uri;
+            
+        });
+
+    </script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/oauth2-client-js@0.0.15/dist/oauth2-client.js"></script>
+    <!-- Load the config variables-->
+    <script type="text/javascript" src="/auth.js"></script>
+
+</body>
+</html>

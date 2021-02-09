@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <title></title>
+</head>
+
+<body>
+    <script type="text/javascript">
+
+        // Document ready start the script
+        document.addEventListener('DOMContentLoaded', function(event) {
+
+            // Parse response after authentication
+            // This will throw an error in case of state mismatch, we stored it in local storage in the previous step.
+            // Notice that this will store the access token in local storage as well.
+            let response = apiProvider.parse(window.location.hash);
+            // Redirect to home page and make API calls
+            window.location.href = "/";
+
+        });
+
+    </script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/oauth2-client-js@0.0.15/dist/oauth2-client.js"></script>
+    <!-- Load the config variables-->
+    <script type="text/javascript" src="/auth.js"></script>
+
+</body>
+</html>

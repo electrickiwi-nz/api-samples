@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <style>
+        pre {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div>
+        <h2 style="display: none;" id="sessHeader">Session data</h2>
+        <pre id="session">
+        </pre>
+        <h2 style="display: none;" id="summaryHeader">Summary data</h2>
+        <pre id="summary">
+        </pre>
+    </div>
+    <script type="text/javascript">
+
+        // Document ready start the script
+        document.addEventListener('DOMContentLoaded', function(event) {
+
+            // Retrieve the access token from local storage
+            let token = apiProvider.getAccessToken();
+
+            // Redirect to auth route if token is not retrieved
+            if (token == null) {
+                window.location.href = "/auth";
+            }
+
+            let sessionHTML = document.getElementById("session");
+            let summaryHTML = document.getElementById("summary");
+            
+            // Make an API call to /session
+            let sessionResp = httpGet(`${API_URL}/session/`, token);
+
+            // Parse response to json format to display nicely.
+            let jsonSession = JSON.parse(sessionResp);
+            sessionHTML.textContent = JSON.stringify(jsonSession, undefined, 4);
+            document.getElementById("sessHeader").style.display = "block";
+
+            // Extract first customer information from session response
+            let customer = jsonSession["data"]["customer"][0];
+            let connectionId = customer["connection"]["connection_id"];
+            let customerNumber = customer["customer_number"]
+            
+            // Make an API call to /consumption/summary/<customer_number>/<connection_id>/
+            let consumptionSummary = httpGet(
+                `${API_URL}/consumption/summary/${customerNumber}/${connectionId}/`, token);
+                
+            // Parse response to json format to display nicely.
+            let jsonConsumptionSummary = JSON.parse(consumptionSummary);
+            summaryHTML.textContent = JSON.stringify(jsonConsumptionSummary, undefined, 4);
+            document.getElementById("summaryHeader").style.display = "block";
+        });
+
+    </script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/oauth2-client-js@0.0.15/dist/oauth2-client.js"></script>
+    <!-- Load the config variables-->
+    <script type="text/javascript" src="/auth.js"></script>
+
+</body>
+</html>

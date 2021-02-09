@@ -1,0 +1,13 @@
+{
+    "name": "electrickiwi-nz/api-samples-ek",
+    "type": "project",
+    "license": "MIT",
+    "config": {
+        "platform": {
+            "php": "7.3"
+        }
+    },
+    "require": {
+        "league/oauth2-client": "^2.6"
+    }
+}
