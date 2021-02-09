@@ -1,6 +1,6 @@
 # Electric Kiwi API - NODE JS Sample
 
-This is a node.js app that provides sample code on how to authenticate and make calls to Electric Kiwi API. To get started with the APIs, please check the [docs](https://developer.electrickiwi.co.nz/api-documentation/).
+This is a node.js app that provides sample code on how to authenticate and make calls to the Electric Kiwi API. To get started with the APIs, please check the [docs](https://developer.electrickiwi.co.nz/api-documentation/).
 
 
 ## Language Requirements
@@ -11,7 +11,7 @@ This is a node.js app that provides sample code on how to authenticate and make 
 
 ## Installation
 
-To get started, install dependencies first using npm
+To get started, install the dependencies first using npm
 
 ```
 npm install
@@ -20,7 +20,7 @@ npm install
 
 ## Configuration
 
-Before running the server, you'd need to modify `index.js` to include your client credentials by modifying `YOUR_CLIENT_ID` and `YOUR_CLIENT_SECRET`.
+Before running the server, you will need to modify `index.js` to include your client credentials by modifying `YOUR_CLIENT_ID` and `YOUR_CLIENT_SECRET`.
 
 ```JavaScript
 const clientId = 'YOUR_CLIENT_ID';
