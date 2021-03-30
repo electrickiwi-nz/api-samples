@@ -32,6 +32,7 @@
             // Redirect to auth route if token is not retrieved
             if (token == null) {
                 window.location.href = "/auth";
+                return;
             }
 
             let sessionHTML = document.getElementById("session");
