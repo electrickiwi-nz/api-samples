@@ -13,7 +13,7 @@ This is a node.js app that provides sample code on how to authenticate and make 
 
 To get started, install the dependencies first using npm
 
-```
+```bash
 npm install
 ```
 
@@ -32,7 +32,7 @@ const clientSecret = 'YOUR_CLIENT_SECRET';
 
 To start running the server and the authentication process, run the command:
 
-```
+```bash
 npm start
 ```
 
@@ -46,3 +46,24 @@ This sample uses the following main libraries, which will be installed via NPM:
 * client-oauth2
 * express
 * axios
+
+
+## Running the sample within Docker
+
+To run the sample within Docker, Docker desktop has to be installed. The steps for the installation can be found [here](https://www.docker.com/products/docker-desktop)
+
+If you are using docker version 3.6 and above, use the below commands: 
+
+```bash
+cd javascript
+docker compose build
+docker compose run -p "5080:5080" ek_api_node
+```
+
+If you are using docker version below 3.6, use the below commands: 
+
+```bash
+cd javascript
+docker-compose build
+docker-compose run -p "5080:5080" ek_api_node
+```

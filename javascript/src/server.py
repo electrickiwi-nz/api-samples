@@ -3,7 +3,7 @@ from os import path
 
 DIR_PATH = path.abspath(path.dirname(__file__))
 
-hostName = "localhost"
+hostName = "0.0.0.0"
 hostPort = 5080
 
 

@@ -1,0 +1,12 @@
+version: "3.7"
+services: 
+  ek_api_php:
+    build: ./
+    ports: 
+      - "5080:5080"
+    volumes:
+      - ./src:/usr/src/app
+    command:
+      - "php"
+      - "-S"
+      - "0.0.0.0:5080"

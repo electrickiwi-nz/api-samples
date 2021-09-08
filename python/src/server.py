@@ -136,6 +136,7 @@ def sample_api_calls():
         <h1>/session/ response</h1>
         <div>%s</div>
         <h1>/consumption/summary/ response</h1>
+        
         <div>%s</div>
     """ % (
         dumps(response.json(), indent=3),

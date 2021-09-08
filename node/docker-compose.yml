@@ -1,0 +1,16 @@
+version: "3.7"
+services: 
+  ek_api_node:
+    build: ./
+    ports: 
+      - "5080:5080"
+    volumes:
+      - ./src:/usr/src/app
+    environment:
+      - "DEBUG=http,mail,express:*"
+    command: >
+      /bin/ash -c "
+      if [ -d \"/usr/src/app/node_modules/\" ]; then rm -r /usr/src/app/node_modules/; fi
+      && ln -s /usr/local/lib/node_modules/ /usr/src/app/
+      && npm start
+      "

@@ -12,7 +12,7 @@ A PHP client that provides sample code on how to authenticate and make calls to 
 ## Installation
 
 To get started, you will need to install dependencies first as follows
-```
+```bash
 composer install
 ```
 
@@ -28,7 +28,7 @@ Simply modify `YOUR_CLIENT_ID` and `YOUR_CLIENT_SECRET` with your credentials.
 
 To start running the server and the authentication process, you will need to run the server first, you can do this with PHP's built-in web server
 
-```
+```bash
 php -S localhost:5080
 ```
 
@@ -40,3 +40,24 @@ Then in your browser, visit `http://localhost:5080/` and you will be redirected 
 This sample uses the following main libraries, which will be installed via composer:
 
 * league/oauth2-client
+
+
+## Running the sample within Docker
+
+To run the sample within Docker, Docker desktop has to be installed. The steps for the installation can be found [here](https://www.docker.com/products/docker-desktop)
+
+If you are using docker version 3.6 and above, use the below commands: 
+
+```bash
+cd javascript
+docker compose build
+docker compose run -p "5080:5080" ek_api_php
+```
+
+If you are using docker version below 3.6, use the below commands: 
+
+```bash
+cd javascript
+docker-compose build
+docker-compose run -p "5080:5080" ek_api_php
+```

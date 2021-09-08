@@ -21,7 +21,7 @@ To get started, you will need to run a server on localhost, for this step, a pyt
 
 You can run the server using python (or python3 on linux) command:
 
-```
+```bash
 python server.py
 ```
 
@@ -36,3 +36,24 @@ After starting your local server, visit `http://localhost:5080/`, you'll then be
 This sample uses the following main libraries:
 
 * oauth2-client-js
+
+
+## Running the sample within Docker
+
+To run the sample within Docker, Docker desktop has to be installed. The steps for the installation can be found [here](https://www.docker.com/products/docker-desktop)
+
+If you are using docker version 3.6 and above, use the below commands: 
+
+```bash
+cd javascript
+docker compose build
+docker compose run -p "5080:5080" ek_api_javascript
+```
+
+If you are using docker version below 3.6, use the below commands: 
+
+```bash
+cd javascript
+docker-compose build
+docker-compose run -p "5080:5080" ek_api_javascript
+```

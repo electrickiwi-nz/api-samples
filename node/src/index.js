@@ -52,7 +52,7 @@ app.get('/callback', function (req, res) {
 app.get("/", async (req, res) => {
 
     // Authenticate user if token is null
-    if (token === null) {
+    if ((undefined === token) || (token === null)) {
         return res.redirect("/auth");
     }
 
@@ -85,6 +85,6 @@ app.get("/", async (req, res) => {
     }
 })
 
-app.listen(port, () => {
-    console.log(`ek-api-sample listening at http://localhost:${port}`);
+app.listen(port, '0.0.0.0', () => {
+    console.log(`ek-api-sample listening at http://0.0.0.0:${port}`);
 })

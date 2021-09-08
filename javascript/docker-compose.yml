@@ -1,0 +1,11 @@
+version: "3.7"
+services: 
+  ek_api_javascript:
+    build: ./
+    ports: 
+      - "5080:5080"
+    volumes:
+      - ./src:/usr/src/app
+    command:
+      - "python"
+      - "server.py"
