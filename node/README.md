@@ -55,7 +55,7 @@ To run the sample within Docker, Docker desktop has to be installed. The steps f
 If you are using docker version 3.6 and above, use the below commands: 
 
 ```bash
-cd javascript
+cd node
 docker compose build
 docker compose run -p "5080:5080" ek_api_node
 ```
@@ -63,7 +63,7 @@ docker compose run -p "5080:5080" ek_api_node
 If you are using docker version below 3.6, use the below commands: 
 
 ```bash
-cd javascript
+cd node
 docker-compose build
 docker-compose run -p "5080:5080" ek_api_node
 ```
